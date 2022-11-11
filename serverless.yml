@@ -1,0 +1,22 @@
+org: naoki0000
+app: aws-node-http-api-project
+service: aws-node-http-api-project
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  helloWorld:
+    handler: handler.helloWorld # <fileName>.<functionName>
+    events:
+      - httpApi:
+          path: /helloWorld
+          method: get
